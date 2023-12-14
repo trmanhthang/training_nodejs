@@ -1,4 +1,10 @@
 {
+  "name": "training_nodejs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2"

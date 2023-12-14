@@ -1,1 +1,40 @@
-<h1>Home</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th colspan="2" scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {{#each listProduct}}
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{name}}</td>
+        <td>{{quantity}}</td>
+        <td>{{price}}</td>
+        <td>
+            <a class="btn btn-primary" href="#" role="button">Sửa</a>
+        </td>
+        <td>
+            <a class="btn btn-primary" href="#" role="button">Xoá</a>
+        </td>
+    </tr>
+    {{/each}}
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>
+            <a class="btn btn-primary" href="#" role="button">Sửa</a>
+        </td>
+        <td>
+            <a class="btn btn-primary" href="#" role="button">Xoá</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
