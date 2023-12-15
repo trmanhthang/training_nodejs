@@ -1,7 +1,7 @@
 const { engine } = require('express-handlebars');
 const express = require('express');
 const morgan = require('morgan');
-const middleware = require('./security/middleware')
+const middleware = require('./security/middleware');
 
 const app = express();
 const port = 3000;
