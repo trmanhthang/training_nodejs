@@ -1,6 +1,3 @@
-const productService = require('../service/ProductService');
-const categoryService = require("../service/CategoryService");
-
 const Product = require('../model/Product');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
