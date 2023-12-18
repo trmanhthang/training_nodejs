@@ -10,11 +10,11 @@
     </thead>
     <tbody>
 
-    {{#each listProduct}}
+    {{#each product}}
     <tr>
-        <th scope="row">{{id}}</th>
-        <td>{{name}}</td>
-        <td>{{quantity}}</td>
+        <th scope="row">{{addOne @index}}</th>
+        <td><a href="http://localhost:3000/{{_id}}">{{name}}</a></td>
+        <td>{{{quantity}}}</td>
         <td>{{price}}</td>
         <td>
             <a class="btn btn-primary" href="#" role="button">Sửa</a>
@@ -24,17 +24,5 @@
         </td>
     </tr>
     {{/each}}
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>
-            <a class="btn btn-primary" href="#" role="button">Sửa</a>
-        </td>
-        <td>
-            <a class="btn btn-primary" href="#" role="button">Xoá</a>
-        </td>
-    </tr>
     </tbody>
 </table>

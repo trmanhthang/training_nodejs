@@ -1,27 +1,7 @@
-class Category {
-    private id = 0;
-    private name;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
+const Category = new Schema({
+    id: ObjectId,
 
-    constructor(name) {
-        this._id++;
-        this._name = name;
-    }
-
-
-    get id() {
-        return this._id;
-    }
-
-    set id(value) {
-        this._id = value;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    set name(value) {
-        this._name = value;
-    }
-}
+})

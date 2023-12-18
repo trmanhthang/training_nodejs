@@ -1,12 +1,16 @@
-const { engine } = require('express-handlebars');
+const  { engine } = require('express-handlebars');
 const express = require('express');
 const morgan = require('morgan');
 const middleware = require('./security/middleware');
+const helper = require('./config/handlebars/helper');
 
+const db = require('./config/db');
 const app = express();
 const port = 3000;
 
 const route = require('./routes');
+
+db.connect();
 
 // app.use(middleware);
 
@@ -17,7 +21,10 @@ app.use(express.urlencoded());
 app.use(morgan('combined'));
 
 // Template engine
-app.engine('hbs', engine({extname: '.hbs'}));
+app.engine('hbs', engine({
+    extname: '.hbs',
+    helpers: helper
+}));
 app.set('view engine', 'hbs');
 app.set("views", __dirname + '/views');
 
