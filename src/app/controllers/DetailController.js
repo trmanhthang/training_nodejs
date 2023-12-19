@@ -12,7 +12,7 @@ class DetailController {
                     });
                 })
         } catch (err) {
-
+            console.log(err);
         }
 
     }
