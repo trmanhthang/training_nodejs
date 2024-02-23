@@ -6,7 +6,7 @@ class AuthController {
         const user = await UserService.findOneByEmail(userReq?.email);
         if(!user) {
             await UserService.save(userReq);
-            res.json({ message: "OK"})
+            res.json({ msg: "OK"})
         } else {
             res.json(userReq);
         }
@@ -18,13 +18,23 @@ class AuthController {
         if (user && userReq.password === user.password) {
             res.json({
                 _id: user._id,
-                username: user.name,
+                name: user.name,
                 email: user.email,
+                password: user.password,
                 dashboard: user.dashboard
             })
         } else {
-            res.json({message: "Tài khoản không tồn tại!"})
+            res.json({
+                msg: "Account does not exist!"
+            })
         }
+    }
+
+    updateAccount(req, res) {
+        UserService.updateAccount(req.body).then();
+        res.json({
+            msg: 'Update Success!'
+        })
     }
 }
 

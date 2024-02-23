@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../app/controllers/AuthController');
-const {RequestUserDto, UserRegister} = require("../app/validator/dto/RequestUserDto");
-const {handleValidationErrors} = require('../app/validator/handleValidationErrors')
+const { RequestUserDto, RequestUserLoginDto} = require("../app/validator/dto/Validator");
+const { handleValidationErrors } = require('../app/validator/handleValidationErrors')
 
-router.post('/register', UserRegister, handleValidationErrors, authController.register);
-router.post('/login', authController.login)
+router.post('/register', RequestUserDto, handleValidationErrors, authController.register);
+router.post('/login', RequestUserLoginDto, handleValidationErrors, authController.login);
+router.post('/update',RequestUserDto, handleValidationErrors, authController.updateAccount);
 
 module.exports = router;

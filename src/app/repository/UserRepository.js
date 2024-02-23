@@ -8,6 +8,10 @@ class UserRepository {
         const userCreate = await new User(user);
         await userCreate.save();
     }
+
+    findOneById(id) {
+        return User.findById(id);
+    }
 }
 
 module.exports = new UserRepository;
