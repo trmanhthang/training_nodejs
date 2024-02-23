@@ -1,9 +1,9 @@
-const homeRouter = require('./home');
-const detailRouter = require('./detail');
+const authRouter = require('./auth')
+const actionRouter = require('./action')
 
 function route(app) {
-    app.use('/detail', detailRouter);
-    app.use('/', homeRouter);
+    app.use('/auth', authRouter)
+    app.use('/action', actionRouter)
 }
 
 module.exports = route;

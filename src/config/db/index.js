@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/training_nodejs', {
+        await mongoose.connect('mongodb://127.0.0.1:27017/to_do_list', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
