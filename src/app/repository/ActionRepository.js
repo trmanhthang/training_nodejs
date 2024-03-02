@@ -1,4 +1,3 @@
-const Action = require("../model/Action");
 const User = require("../model/User")
 class ActionRepository {
     async save(data) {
