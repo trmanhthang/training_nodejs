@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const action = require('../model/Action')
+const Action = require('../model/Action');
+const MessageFrom = require('../model/MessageFrom');
+const MessageTo = require('../model/MessageTo')
 
 const User = new Schema({
     email: String,
     name: String,
     password: String,
-    dashboard: [action],
+    dashboard: [Action],
+    message_from: [MessageFrom],
+    message_to: [MessageTo],
 });
 
 module.exports = mongoose.model('User', User);

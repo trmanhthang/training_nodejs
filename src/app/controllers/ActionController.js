@@ -7,6 +7,13 @@ class ActionController {
             msg: "OK"
         })
     }
+
+    async chatMessage(req, res) {
+        const data = req.body;
+        const result = await actionService.saveMessage(data)
+        res.json(result)
+
+    }
 }
 
 module.exports = new ActionController;

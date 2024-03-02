@@ -16,4 +16,10 @@ const RequestUpdateDashboard = [
     check('dashboard').notEmpty().withMessage('Do not leave dashboard data empty')
 ]
 
-module.exports = { RequestUserDto, RequestUserLoginDto, RequestUpdateDashboard };
+const RequestMessageDto = [
+    check('from').notEmpty().withMessage('Do not leave "from" data empty'),
+    check('to').notEmpty().withMessage('Do not leave "to" data empty'),
+    check('message').notEmpty().withMessage('Do not leave message data empty')
+]
+
+module.exports = { RequestUserDto, RequestUserLoginDto, RequestUpdateDashboard, RequestMessageDto };
