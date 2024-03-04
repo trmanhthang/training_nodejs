@@ -18,10 +18,10 @@ class ActionController {
 
     async uploadFile(req, res) {
         console.log(req.file)
-        const file = await new File({"path": req.file.path})
+        const file = await new File({"path": req.file.filename})
         file.save()
         res.json({
-            "message": req.file.path
+            "message": `http://localhost:3001/${req.file.filename}`
         })
     }
 }
