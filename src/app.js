@@ -5,8 +5,8 @@ const morgan = require('morgan');
 const db = require('./config/db');
 const port = 3001;
 
-const app = express();
 // Tạo một máy chủ http và chuyển express app như một trình xử lý yêu cầu
+const app = express();
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);

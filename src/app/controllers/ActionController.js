@@ -1,4 +1,5 @@
 const actionService = require('../service/ActionService');
+const File = require('../model/File')
 class ActionController {
     async add(req, res) {
         const data = req.body;
@@ -13,6 +14,15 @@ class ActionController {
         const result = await actionService.saveMessage(data)
         res.json(result)
 
+    }
+
+    async uploadFile(req, res) {
+        console.log(req.file)
+        const file = await new File({"path": req.file.path})
+        file.save()
+        res.json({
+            "message": req.file.path
+        })
     }
 }
 

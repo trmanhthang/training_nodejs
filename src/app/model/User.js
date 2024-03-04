@@ -8,6 +8,7 @@ const User = new Schema({
     email: String,
     name: String,
     password: String,
+    avatar: String,
     dashboard: [Action],
     message_from: [MessageFrom],
     message_to: [MessageTo],
