@@ -1,7 +1,9 @@
 const UserService = require('../service/UserService')
 const e = require("express");
+const fs = require('fs')
 class AuthController {
     async register (req, res) {
+        const filePath = req.file.path;
         const avatar = req.file.filename;
         const userReq = req.body;
         const user = await UserService.findOneByEmail(userReq?.email);
@@ -10,6 +12,11 @@ class AuthController {
             await UserService.save(userReq);
             res.json({ msg: "OK"})
         } else {
+            fs.unlink(filePath, (err) => {
+                if (err) {
+                    console.error('Lỗi khi xoá tệp tin:', err);
+                }
+            });
             res.json({ msg: 'Fail!'});
         }
     }
