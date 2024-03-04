@@ -1,5 +1,4 @@
 const actionService = require('../service/ActionService');
-const File = require('../model/File')
 class ActionController {
     async add(req, res) {
         const data = req.body;
