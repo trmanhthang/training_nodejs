@@ -1,9 +1,9 @@
-const { check, validationResult } = require('express-validator');
+const { check, validationResult, body} = require('express-validator');
 
 const RequestUserDto = [
-    check('name').isLength({ min: 5 }).withMessage('Name must be at least 5 characters'),
-    check('email').notEmpty().withMessage('Do not leave email data empty').isEmail().withMessage('Invalid email'),
-    check('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters'),
+    body('name').isLength({ min: 5 }).withMessage('Name must be at least 5 characters'),
+    body('email').notEmpty().withMessage('Do not leave email data empty').isEmail().withMessage('Invalid email'),
+    body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters'),
 ];
 
 const RequestUserLoginDto = [

@@ -7,6 +7,5 @@ const upload = require('../config/upload')
 
 router.post('/edit', RequestUpdateDashboard, handleValidationErrors, actionController.add);
 router.post('/chat', RequestMessageDto, handleValidationErrors, actionController.chatMessage);
-router.post('/upload', upload.single('file'), actionController.uploadFile)
 
 module.exports = router;

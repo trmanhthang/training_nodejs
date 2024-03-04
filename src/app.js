@@ -1,9 +1,10 @@
 const express = require('express');
 const { createServer } = require('http');
 const morgan = require('morgan');
+require('dotenv').config();
 
 const db = require('./config/db');
-const port = 3001;
+const port = process.env.PORT || 3000;
 
 // Tạo một máy chủ http và chuyển express app như một trình xử lý yêu cầu
 const app = express();
