@@ -12,6 +12,8 @@ const User = new Schema({
     dashboard: [Action],
     message_from: [MessageFrom],
     message_to: [MessageTo],
+    schedule: String,
+    role: String
 });
 
 module.exports = mongoose.model('User', User);

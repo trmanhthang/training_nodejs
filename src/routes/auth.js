@@ -8,5 +8,6 @@ const upload = require("../config/upload");
 router.post('/register', upload.single('avatar'), RequestUserDto, handleValidationErrors, authController.register);
 router.post('/login', RequestUserLoginDto, handleValidationErrors, authController.login);
 router.post('/update',RequestUserDto, handleValidationErrors, authController.updateAccount);
+router.post('/me', handleValidationErrors, authController.getAccountById);
 
 module.exports = router;
