@@ -31,6 +31,7 @@ app.use(express.json())
 
 // Sử dụng Express để phục vụ các tệp tĩnh từ thư mục public
 app.use(express.static(path.join(__dirname, 'public', 'image')));
+app.use(express.static(path.join(__dirname, 'public', 'file')));
 
 app.use(cors());
 // Routes init

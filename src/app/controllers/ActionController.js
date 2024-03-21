@@ -1,4 +1,5 @@
 const actionService = require('../service/ActionService');
+const path = require("path");
 class ActionController {
     async add(req, res) {
         const data = req.body;
@@ -15,23 +16,29 @@ class ActionController {
 
     }
 
-    uploadFile(req, res) {
-        const result = actionService.uploadFile(req.body.id, req.file)
+    async uploadFile(req, res) {
+        const result = await actionService.uploadFile(req.body.id, req.file)
         res.status(result.statusCode).json({
             message: result.message,
         })
     }
 
-    downloadFile(req, res) {
+    async downloadFile(req, res) {
         try {
-            const result = actionService.downloadFile();
-            res.status(result.statusCode).sendFile(`./src/public/file/${result.filename}`)
+            const result = await actionService.downloadFile(req.body);
+            res.status(200).sendfile(`./src/public/file/${result.filename}`)
         } catch {
             res.status(400).json({
                 message: 'File not found'
             })
         }
 
+    }
+
+    async getAllUser(req, res) {
+        const result = await actionService.getAllUser();
+        console.log(result)
+        res.status(result.statusCode).json(result.users);
     }
 }
 

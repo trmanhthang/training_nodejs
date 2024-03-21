@@ -44,19 +44,24 @@ class ActionService {
         }
     }
 
-    async downloadFile(userId, filename) {
-        const user = await UserRepository.findOneById(userId);
-        if (user && user.file !== null ) {
+    async downloadFile(reqUser) {
+        const user = await UserRepository.findOneById(reqUser.id);
+        if (user && user.file.length > 0 ) {
             for (let item in user.file) {
-                if (item === filename) {
+                if (user.file[item] === reqUser.filename) {
                     return {
-                        statusCode: 200,
-                        filename: item
+                        filename: user.file[item]
                     }
                 }
             }
+        }
+    }
 
-            throw new Error('File not found')
+    async getAllUser() {
+        const users = await UserRepository.findAll();
+        return {
+            statusCode: 200,
+            users: users
         }
     }
 }
