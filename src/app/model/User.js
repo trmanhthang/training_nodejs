@@ -13,6 +13,8 @@ const User = new Schema({
     file:[String],
     message_from: [MessageFrom],
     message_to: [MessageTo],
+    schedule: String,
+    role: String
 });
 
 module.exports = mongoose.model('User', User);

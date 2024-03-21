@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 require('dotenv').config();
 
 const db = require('./config/db');
@@ -31,5 +32,6 @@ app.use(express.json())
 // Sử dụng Express để phục vụ các tệp tĩnh từ thư mục public
 app.use(express.static(path.join(__dirname, 'public', 'image')));
 
+app.use(cors());
 // Routes init
 route(app);
