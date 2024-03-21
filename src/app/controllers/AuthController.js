@@ -31,6 +31,7 @@ class AuthController {
                 email: user.email,
                 avatar: `${req.protocol}://${req.host}:${process.env.PORT || 3000}/${user.avatar}`,
                 password: user.password,
+                file: user.file,
                 dashboard: user.dashboard
             })
         } else {

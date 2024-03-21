@@ -1,5 +1,6 @@
 const UserRepository = require('../repository/UserRepository')
 const {raw} = require("express");
+const fs = require("fs");
 class UserService {
     findOneByEmail(email) {
         return UserRepository.findOneByEmail(email);

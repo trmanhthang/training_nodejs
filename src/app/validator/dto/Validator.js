@@ -22,4 +22,14 @@ const RequestMessageDto = [
     check('message').notEmpty().withMessage('Do not leave message data empty')
 ]
 
-module.exports = { RequestUserDto, RequestUserLoginDto, RequestUpdateDashboard, RequestMessageDto };
+const RequestUpload = [
+    check('id').notEmpty().withMessage('Do not leave "from" data empty')
+]
+
+module.exports = {
+    RequestUserDto,
+    RequestUserLoginDto,
+    RequestUpdateDashboard,
+    RequestMessageDto,
+    RequestUpload
+};

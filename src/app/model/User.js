@@ -10,6 +10,7 @@ const User = new Schema({
     password: String,
     avatar: String,
     dashboard: [Action],
+    file:[String],
     message_from: [MessageFrom],
     message_to: [MessageTo],
 });
