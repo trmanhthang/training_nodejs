@@ -7,8 +7,9 @@ class ActionRepository {
     }
 
     async saveMessage(data) {
-        const userFrom = await User.findById(data.from);
-        const userTo = await User.findById(data.to);
+        console.log(data);
+        const userFrom = await User.findOne({"email": data.from});
+        const userTo = await User.findOne({"email": data.to});
 
         if (userFrom && userTo) {
             userFrom.message_to.push({
