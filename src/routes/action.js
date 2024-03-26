@@ -8,6 +8,6 @@ const {uploadFile} = require('../config/upload')
 router.post('/edit', RequestUpdateDashboard, handleValidationErrors, actionController.add);
 router.post('/chat', RequestMessageDto, handleValidationErrors, actionController.chatMessage);
 router.post('/upload', uploadFile.single('file'), RequestUpload, handleValidationErrors, actionController.uploadFile);
-router.get('/download', actionController.downloadFile);
+router.post('/download', actionController.downloadFile);
 router.get('/user/all', actionController.getAllUser)
 module.exports = router;

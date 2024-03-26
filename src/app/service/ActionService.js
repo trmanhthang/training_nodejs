@@ -14,11 +14,12 @@ class ActionService {
         try {
             const user = await UserRepository.findOneById(userId);
             if (user) {
-                user.file.push(file.filename);
+                user.file = (file.filename);
                 await UserRepository.save(user);
                 return {
                     statusCode: 200,
-                    message: "Upload Success"
+                    message: "Upload Success",
+                    url: `./public/file/${file.filename}`
                 }
             } else {
                 fs.unlink(file.path, (err) => {
@@ -46,14 +47,8 @@ class ActionService {
 
     async downloadFile(reqUser) {
         const user = await UserRepository.findOneById(reqUser.id);
-        if (user && user.file.length > 0 ) {
-            for (let item in user.file) {
-                if (user.file[item] === reqUser.filename) {
-                    return {
-                        filename: user.file[item]
-                    }
-                }
-            }
+        if (user && user.file != "" ) {
+            return user.file
         }
     }
 
