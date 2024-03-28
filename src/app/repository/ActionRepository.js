@@ -1,4 +1,5 @@
-const User = require("../model/User")
+const User = require("../model/User");
+const UserRepository = require("./UserRepository");
 class ActionRepository {
     async save(data) {
         const user = await User.findById(data._id);
@@ -10,21 +11,21 @@ class ActionRepository {
         console.log(data);
         const userFrom = await User.findOne({"email": data.from});
         const userTo = await User.findOne({"email": data.to});
-
         if (userFrom && userTo) {
             userFrom.message_to.push({
-                "id_user_to": data.to,
-                "message": data.message
+                "user_to": data.to,
+                "subject": data.subject,
+                "message": data.message,
             });
-
-            await userFrom.save();
+            await UserRepository.save(userFrom).then();
 
             userTo.message_from.push({
-                "id_user_from": data.from,
+                "user_from": data.from,
+                "subject": data.subject,
                 "message": data.message
             })
 
-            await userTo.save();
+            await UserRepository.save(userTo).then();
 
             return {
                 "message": "Success!"
