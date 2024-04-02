@@ -16,13 +16,15 @@ class ActionRepository {
                 "user_to": data.to,
                 "subject": data.subject,
                 "message": data.message,
+                "time": data.time
             });
             await UserRepository.save(userFrom).then();
 
             userTo.message_from.push({
                 "user_from": data.from,
                 "subject": data.subject,
-                "message": data.message
+                "message": data.message,
+                "time": data.time
             })
 
             await UserRepository.save(userTo).then();
