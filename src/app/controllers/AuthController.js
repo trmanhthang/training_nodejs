@@ -31,7 +31,7 @@ const CLIENT_ID =
 const CLIENT_SECRET = "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"; // Thay bằng Client Secret của ứng dụng OAuth2
 const REDIRECT_URI = "https://developers.google.com/oauthplayground"; // URI chuyển hướng đã đăng ký trong Google Developers Console
 const REFRESH_TOKEN =
-  "1//04a5x3178DhPACgYIARAAGAQSNwF-L9Irl28K2U5KtDGkxjZu9C0pnebDls4Ah46vMFsjknc1fSOpXVLk_hMGqj_vmw4TEMD3Des"; // Thay bằng Refresh Token sau khi đã xác thực
+  "1//043WWjsvNjFZeCgYIARAAGAQSNwF-L9IrLzzJ6kSxEx2qXVgGbKyaY-FSGdZlne2ospMCX2NMGMaIxFOfW7JyoNcx2v33ncL6Vfg"; // Thay bằng Refresh Token sau khi đã xác thực
 const ADMIN_EMAIL_ADDRESS = "shanks20508@gmail.com";
 // Khởi tạo OAuth2Client với Client ID và Client Secret
 const myOAuth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET);
@@ -77,6 +77,7 @@ class AuthController {
       };
       return respon;
     } catch (error) {
+      console.log(error);
       const e = {
         status: "send_mail_error",
         message: "Error send code",
